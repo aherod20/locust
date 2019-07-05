@@ -190,7 +190,8 @@ a:hover {
 }
 
 .start select.val {
-    width: 334px;
+    width: 336px;
+    border-radius: 0px;
 }
 
 .start button,
