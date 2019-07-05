@@ -54,12 +54,16 @@
                 <a href="#" class="close_link">Close</a>
             </div>
             <div class="padder">
-                <h2>Start new Locust swarm or else</h2>
+                <h2>Start new Locust swarm</h2>
                 <form action="./swarm" method="POST" id="swarm_form">
                     <label for="locust_count">Number of users to simulate</label>
                     <input type="text" name="locust_count" id="locust_count" class="val" /><br>
                     <label for="hatch_rate">Hatch rate <span style="color:#8a8a8a;">(users spawned/second)</span></label>
-                    <input type="text" name="hatch_rate" id="hatch_rate" class="val" /><br>
+                    <input type="text" name="hatch_rate" id="hatch_rate" class="val" id="locust_runtime_option"/><br>
+                    <select name="cars">
+                        <option value="volvo">Define Runtime class="val"</option>
+                        <option value="saab">Run Indefinitely</option>
+                    </select>
                     <label for="Run Time">Run Time <span style="color:#8a8a8a;">(Locust Run Time)</span></label>
                     <input type="text" name="Run Time" id="runtime" class="val" /><br>
                     <button type="submit">Start swarming</button>
