@@ -61,9 +61,9 @@
                     <input type="text" name="locust_count" id="locust_count" class="val" /><br>
                     <label for="hatch_rate">Hatch rate <span style="color:#8a8a8a;">(users spawned/second)</span></label>
                     <input type="text" name="hatch_rate" id="hatch_rate" class="val" id="locust_runtime_option"/><br>
-                    <label for="runtime_options" id="runtime_label" style="display: none">Runtime Options<span style="color:#8a8a8a;">(Select to define runtime)</span></label>
+                    <label for="runtime_options" id="runtime_label">Runtime Options<span style="color:#8a8a8a;">(Select to define runtime)</span></label>
                     <select name="runtime_options" id="runtime_options" onchange="displayRuntimeOptions()" class="val">
-                        <option value="run_indefinitely">Run Indefinitely</option>
+                        <option value="run_indefinitely" select="selected">Run Indefinitely</option>
                         <option value="define_runtime">Define Runtime</option>
                     </select>
                     <label for="Run Time">Run Time <span style="color:#8a8a8a;">(Locust Run Time)</span></label>
