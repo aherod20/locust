@@ -188,6 +188,11 @@ a:hover {
     font-size: 24px;
     padding-left: 10px;
 }
+
+start select.val {
+    width: 332px;
+}
+
 .start button,
 .edit button {
     margin-top: 20px;
