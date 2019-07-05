@@ -195,10 +195,6 @@ a:hover {
     -webkit-border-radius: 0px;
 }
 
-.start #runtime {
-    display: none;
-}
-
 .start button,
 .edit button {
     margin-top: 20px;
