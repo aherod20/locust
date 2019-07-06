@@ -24,6 +24,10 @@ from .util.time import parse_timespan
 _internals = [Locust, HttpLocust]
 version = locust.__version__
 
+
+def timelimit_stop():
+    runners.locust_runner.quit()
+
 def parse_options():
     """
     Handle command-line options with optparse.OptionParser.
@@ -571,3 +575,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+

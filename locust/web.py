@@ -7,14 +7,17 @@ import os.path
 from collections import defaultdict
 from itertools import chain
 from time import time
+import sys
 
+import gevent
 import six
 from flask import Flask, make_response, jsonify, render_template, request
 from gevent import pywsgi
 
-from locust import __version__ as version
+from locust import __version__ as version, main
 from six.moves import StringIO, xrange
 
+from locust.util.time import parse_timespan
 from . import runners
 from .runners import MasterLocustRunner
 from .stats import distribution_csv, failures_csv, median_from_dict, requests_csv, sort_stats
@@ -28,6 +31,12 @@ app = Flask(__name__)
 app.debug = True
 app.root_path = os.path.dirname(os.path.abspath(__file__))
 
+
+def start(locust, options):
+    global boptions
+    boptions = options
+    pywsgi.WSGIServer((options.web_host, options.port),
+                      app, log=None).serve_forever()
 
 @app.route('/')
 def index():
@@ -58,7 +67,21 @@ def swarm():
 
     locust_count = int(request.form["locust_count"])
     hatch_rate = float(request.form["hatch_rate"])
+    #Check that option runtime is running
+
+    runtime = str(request.form["runtime"])
+    if runtime is not None:
+        try:
+            boptions.run_time = parse_timespan(runtime)
+        except ValueError:
+            logger.error("Valid --run-time formats are: 20, 20s, 3m, 2h, 1h20m, 3h30m10s, etc.")
+            sys.exit(1)
+
+        runtime = boptions.options.run_time
+    if runtime is not None:
+        gevent.spawn_later(boptions.run_time, main.timelimit_stop)
     runners.locust_runner.start_hatching(locust_count, hatch_rate)
+
     return jsonify({'success': True, 'message': 'Swarming started'})
 
 @app.route('/stop')
@@ -173,6 +196,3 @@ def exceptions_csv():
     response.headers["Content-disposition"] = disposition
     return response
 
-def start(locust, options):
-    pywsgi.WSGIServer((options.web_host, options.port),
-                      app, log=None).serve_forever()
