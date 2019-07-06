@@ -77,7 +77,7 @@ def swarm():
             logger.error("Valid --run-time formats are: 20, 20s, 3m, 2h, 1h20m, 3h30m10s, etc.")
             sys.exit(1)
 
-        runtime = boptions.options.run_time
+        runtime = boptions.run_time
     if runtime is not None:
         gevent.spawn_later(boptions.run_time, main.timelimit_stop)
     runners.locust_runner.start_hatching(locust_count, hatch_rate)
