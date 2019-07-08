@@ -26,7 +26,7 @@ version = locust.__version__
 
 
 def timelimit_stop():
-    runners.locust_runner.quit()
+    runners.locust_runner.stop()
 
 def parse_options():
     """
