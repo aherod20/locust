@@ -225,7 +225,7 @@ a:hover {
     -moz-border-radius: 5px;
     -webkit-border-radisu: 5px;
     border: 3px solid #eee;
-    background: #132b21;
+    background: #EE5158;
     box-shadow: 0 0 60px rgba(0,0,0,0.3);
 }
 
@@ -236,7 +236,7 @@ a:hover {
     -moz-border-radius: 5px;
     -webkit-border-radisu: 5px;
     border: 3px solid #eee;
-    background: #132b21;
+    background: #EE5158;
     box-shadow: 0 0 60px rgba(0,0,0,0.3);
 }
 .running .start, .hatching .start {display: none;}
@@ -374,7 +374,7 @@ a:hover {
     color: #b3c3bc;
     margin-bottom: 30px;
     border-radius: 3px;
-    background: #132b21;
+    background: #EE5158;
     padding: 10px;
     display: inline-block;
 }
@@ -389,7 +389,7 @@ em {
 }
 
 nav.menu {
-    background: #132b21;
+    background: #EE5158;
 }
 ul.tabs {
     overflow: hidden
@@ -441,7 +441,7 @@ ul.tabs li a.current:after {
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
     border: 3px solid #eee;
-    background: #132b21;
+    background: #EE5158;
     box-shadow: 0 0 60px rgba(0,0,0,0.3);
     z-index: 1;
 }
@@ -459,7 +459,7 @@ ul.tabs li a.current:after {
     position: absolute;
     bottom: 0;
     padding: 12px 0;
-    background: #132b21;
+    background: #EE5158;
     width: 100%;
     text-align: right;
     box-sizing: border-box;
